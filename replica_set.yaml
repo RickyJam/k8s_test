@@ -1,0 +1,17 @@
+apiVersion: apps/v1 # apps necessario perchè altrimenti non legge chiavi come "replicas" e "selector"
+kind: ReplicaSet
+metadata:
+  name: replica
+spec:
+  replicas: 1
+  selector:
+   matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
