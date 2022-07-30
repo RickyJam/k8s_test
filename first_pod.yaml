@@ -3,6 +3,8 @@ kind: Pod
 metadata:
   name: nginx
   namespace: tesi
+  labels:
+    app: backend
 spec:
   containers:
     - name: nginx
