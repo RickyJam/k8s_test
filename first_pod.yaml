@@ -11,7 +11,6 @@ spec:
       image: nginx
       ports:
         - containerPort: 80
-        
     - name: ghost
       image: ghost
       ports:
