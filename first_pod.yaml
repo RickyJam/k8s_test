@@ -1,0 +1,16 @@
+apiVersion: V1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: Tesi
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
+        
+    - name: ghost
+      image: ghost
+      ports:
+        - containerPort: 2378
