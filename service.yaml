@@ -4,25 +4,24 @@ metadata:
   name: db
   namespace: tesi
 spec:
-  clusterIP: None
   selector:
     app: mydb
   ports:
     - port: 3306
       targetPort: 3306
 
----
+# ---
 
-apiVersion: v1
-kind: Service
-metadata:
-  name: db
-  namespace: tesi
-spec:
-  selector:
-    app: mydb
-  ports:
-    - port: 3306
-      targetPort: 3306
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: db
+#   namespace: tesi
+# spec:
+#   selector:
+#     app: mydb
+#   ports:
+#     - port: 3306
+#       targetPort: 3306
 
---- # server per dichiarare più template nello stesso file, ma potrei mettetere anche service e statefulset 
+# --- # server per dichiarare più template nello stesso file, ma potrei mettetere anche service e statefulset 
