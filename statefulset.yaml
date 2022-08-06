@@ -21,7 +21,13 @@ spec:
             - containerPort: 3306
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: root
+            # qui il meccanismo per usarlo tramite file di config
+              valueFrom: 
+                secretKeyRef:
+                  name: secret-db # nome del file
+                  key: password
+              # qui per usare il vaore schiantanto
+              # value: root  
           volumeMounts:
             - name: db
               mountPath: /var/lib/mysql
