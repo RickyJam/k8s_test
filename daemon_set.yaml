@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: my-daemon
+  namespace: tesi
+spec:
+  selector:
+    matchLabels:
+      name: my-daemon
+  template:
+    metadata:
+      labels:
+        name: my-daemon
+    spec:
+      tolerations: # blocca la creazione del pod se esiste un pod con questa etichetta (non lo esegue sul master in sto caso)
+        - key: node-role.kubernetes.io/master
+          operator: Exists
+          effect: NoExecute
+      containers:
+        - name: daemon
+          image: httpd:2.4 # un po inutile, in genere si usano fluent o altri tool di monitoring
