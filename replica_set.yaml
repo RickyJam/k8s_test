@@ -2,6 +2,7 @@ apiVersion: apps/v1 # apps necessario perchè altrimenti non legge chiavi come "
 kind: ReplicaSet
 metadata:
   name: replica
+  namespace: tesi
 spec:
   replicas: 1
   selector:
