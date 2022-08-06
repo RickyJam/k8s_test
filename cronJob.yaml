@@ -7,6 +7,7 @@ spec:
   schedule: "* * * * *"  # classico formato linux per cronjob
   jobTemplate:
     spec:
+      suspend: true # sospeso, altrimenti continua a creare job
       template: # stesso formato del job semplice 
         spec:
           containers:
