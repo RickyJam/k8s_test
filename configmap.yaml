@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: tesi
+data:
+  config.json: |
+    {
+      "key1": true,
+      "key2": "value"
+    }
+  type: "app"
