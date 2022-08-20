@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-example
+  namespace: tesi
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /pippo
+            pathType: Prefix
+            backend:
+              service:
+                name: tesi
+                port:
+                  number: 80
