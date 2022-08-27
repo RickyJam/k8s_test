@@ -5,10 +5,13 @@
   * va usato il modello statefulSet perchè richiede lo stato essendo un DB. Vedere la questione volumi
 
 * per iniziare ci mettiamo un semplice server node.
-  * creare server node
-  * metterlo in un container
-  * strutturarlo come service. 
-  
+  * creare server node in JS
+  * creare Dockerfile
+  * buildare il DockerFile
+  * metterlo in un container e vedere che parte! ok!
+  * creare un deployments con tutte le specifiche necessarie e non di più.
+    * usare l'immagine appena creata
+  * vedere se serve creare anche un service correlato
   
   
   
