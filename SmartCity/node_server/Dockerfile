@@ -1,8 +1,8 @@
 FROM node:18-alpine
 
-WORKDIR /app/node_service
+WORKDIR /app/node_server
 
-COPY index.js package.json /app/node_service/
+COPY index.js package.json /app/node_server/
 
 RUN yarn install --production
 
