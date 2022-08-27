@@ -5,7 +5,9 @@
   * va usato il modello statefulSet perchè richiede lo stato essendo un DB. Vedere la questione volumi
 
 * per iniziare ci mettiamo un semplice server node.
-  * strutturiamo come service? 
+  * creare server node
+  * metterlo in un container
+  * strutturarlo come service. 
   
   
   
