@@ -10,7 +10,7 @@
   * buildare il DockerFile
   * metterlo in un container e vedere che parte! ok!
   * a questo punto spararle su dockerhub e k8s la ripesca da li 
-    - (sembrerebbe un passaggio di troppo, maserve a prepararsi già per deploy su server remoti)
+    - (sembrerebbe un passaggio di troppo, ma serve a prepararsi già per deploy su server remoti)
   * creare un deployments con tutte le specifiche necessarie e non di più.
     - usare l'immagine appena creata
   * vedere se serve creare anche un service correlato
