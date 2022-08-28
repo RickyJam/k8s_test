@@ -44,7 +44,6 @@ spec:
           claimName: "mongo-volume"
 
 
-# ---
 #       containers:
 #         livenessProbe:
 #           exec:
