@@ -14,6 +14,7 @@
   * creare un deployments con tutte le specifiche necessarie e non di più.
     - usare l'immagine appena creata
   * vedere se serve creare anche un service correlato
+  * questo service corriesponde effettivamente al nostro servizio api che andiamo a sviluppare
   
   
   
