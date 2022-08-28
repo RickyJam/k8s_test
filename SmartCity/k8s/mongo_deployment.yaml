@@ -1,0 +1,73 @@
+# Nonostante in genere si utilizza lo Statefulset per i DB,
+# in questo caso usiamo un Deployment poichè ci sarà sempre ed un solo pod di questo tipo
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-deploy
+  namespace: smart-city
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-deploy
+  strategy: {} # TODO: cosa significa
+  template:
+    metadata:
+      labels:
+        app: mongo-deploy
+    spec:
+      containers:
+      - name: mongo-deploy
+        image: mongo
+        args: ["--dbpath","/data/db"]
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "50m"
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secrets
+              key: username
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secrets
+              key: password
+        volumeMounts:
+        - name: "mongo-data-dir"
+          mountPath: "/data/db"
+      volumes:
+      - name: "mongo-data-dir"
+        persistentVolumeClaim:
+          claimName: "mongo-volume"
+
+
+# ---
+#       containers:
+#         livenessProbe:
+#           exec:
+#             command:
+#               - mongo
+#               - --disableImplicitSessions
+#               - --eval
+#               - "db.adminCommand('ping')"
+#           initialDelaySeconds: 30
+#           periodSeconds: 10
+#           timeoutSeconds: 5
+#           successThreshold: 1
+#           failureThreshold: 6
+#         readinessProbe:
+#           exec:
+#             command:
+#               - mongo
+#               - --disableImplicitSessions
+#               - --eval
+#               - "db.adminCommand('ping')"
+#           initialDelaySeconds: 30
+#           periodSeconds: 10
+#           timeoutSeconds: 5
+#           successThreshold: 1
+#           failureThreshold: 6
+        
