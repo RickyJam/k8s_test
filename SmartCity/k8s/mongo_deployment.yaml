@@ -17,33 +17,31 @@ spec:
         app: mongo-deploy
     spec:
       containers:
-      - name: mongo-deploy
-        image: mongo
-        args: ["--dbpath","/data/db"]
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "50m"
-        env:
-        - name: MONGO_INITDB_ROOT_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: mongo-secrets
-              key: username
-        - name: MONGO_INITDB_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mongo-secrets
-              key: password
-        volumeMounts:
-        - name: "mongo-data-dir"
-          mountPath: "/data/db"
+        - name: mongo-deploy
+          image: mongo
+          args: ["--dbpath", "/data/db"]
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "50m"
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secrets
+                  key: username
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secrets
+                  key: password
+          volumeMounts:
+            - name: "mongo-data-dir"
+              mountPath: "/data/db"
       volumes:
-      - name: "mongo-data-dir"
-        persistentVolumeClaim:
-          claimName: "mongo-volume"
-
-
+        - name: "mongo-data-dir"
+          persistentVolumeClaim:
+            claimName: "mongo-volume"
 #       containers:
 #         livenessProbe:
 #           exec:
@@ -69,4 +67,4 @@ spec:
 #           timeoutSeconds: 5
 #           successThreshold: 1
 #           failureThreshold: 6
-        
+
