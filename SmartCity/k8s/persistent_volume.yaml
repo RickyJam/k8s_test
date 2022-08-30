@@ -4,7 +4,7 @@ metadata:
   name: persistent-volume
   namespace: smart-city
 spec:
-  storageClassName: "shared"
+  storageClassName: standard
   accessModes:
     - ReadWriteMany
   capacity:
